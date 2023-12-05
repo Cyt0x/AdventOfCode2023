@@ -63,6 +63,7 @@ def solve_part_two(seeds, functions):
     return min(p2_solution)
 
 # Read input file
+#input_data = read_input("example.txt")
 input_data = read_input("input.txt")
 input_blocks = parse_blocks(input_data)
 
