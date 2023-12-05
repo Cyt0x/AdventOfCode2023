@@ -27,18 +27,18 @@ class Function:
             src_end = source + size
             new_range = []
             while ranges:
-                (start,end) = ranges.pop()
-                before = (start,min(end,source))
+                (start, end) = ranges.pop()
+                before = (start, min(end,source))
                 interval = (max(start, source), min(src_end, end))
                 after = (max(src_end, start), end)
-                if before[1]>before[0]:
+                if before[1] > before[0]:
                     new_range.append(before)
-                if interval[1]>interval[0]:
-                    hit.append((interval[0]-source+destination, interval[1]-source+destination))
-                if after[1]>after[0]:
+                if interval[1] > interval[0]:
+                    hit.append((interval[0] - source + destination, interval[1] - source + destination))
+                if after[1] > after[0]:
                     new_range.append(after)
             ranges = new_range
-        return hit+ranges
+        return hit + ranges
 
 def get_function_instances(blocks):
     return [Function(block) for block in blocks]
@@ -53,6 +53,7 @@ def solve_part_one(seeds, functions):
 
 def solve_part_two(seeds, functions):
     p2_solution = []
+    # All even seeds and all odd seeds paired
     pairs = list(zip(seeds[::2], seeds[1::2]))
     for start, size in pairs:
         ranges = [(start, start + size)]
