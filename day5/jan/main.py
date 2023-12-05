@@ -1,3 +1,6 @@
+import time
+start_time = time.time()
+
 def read_input(filename):
     with open(filename, 'r') as file:
         return file.read().strip()
@@ -75,3 +78,5 @@ print(solution_part_one)
 
 solution_part_two = solve_part_two(seeds, function_instances)
 print(solution_part_two)
+
+print("--- Execution Time is %s seconds ---" % (time.time() - start_time))
