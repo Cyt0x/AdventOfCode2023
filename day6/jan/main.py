@@ -22,10 +22,8 @@ distances = ints(lines[1])
 def race(time, distance):
     num = 0
     for speed in range(1, time):
-        time_left = time - speed
-        if time_left * speed > distance:
-            num +=1
-    return num
+        if speed * (time - speed) > distance:
+            return time - 2 * speed + 1
     
 product = 1
 for i in range(len(times)):
