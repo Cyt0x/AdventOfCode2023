@@ -31,10 +31,10 @@ for i in range(len(times)):
     
 print(f"Part 1: {product}")
 
-times = int(lines[0].split(":")[1].replace(" ", ""))
+time_two = int(lines[0].split(":")[1].replace(" ", ""))
 distance = int(lines[1].split(":")[1].replace(" ", ""))
 
-print(f"Part 2: {race(times, distance)}")
+print(f"Part 2: {race(time_two, distance)}")
 
 
 print("--- %s seconds ---" % (time.time() - start_time))
