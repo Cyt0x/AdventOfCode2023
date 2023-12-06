@@ -23,7 +23,6 @@ distances = ints(lines[1])
 def race(time, distance):
     minimal_time = (time - sqrt(time ** 2 - 4 * distance)) / 2
     maximal_time = (time + sqrt(time ** 2 - 4 * distance)) / 2
-
     return ceil(maximal_time - 1) - floor(minimal_time + 1) + 1
 
 product = 1
