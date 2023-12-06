@@ -1,11 +1,12 @@
 from typing import List
+import math
 import re
 
 import time
 start_time = time.time()
 
-#data = open("example.txt").readlines()
-data = open("input.txt").readlines()
+data = open("example.txt").readlines()
+#data = open("input.txt").readlines()
 
 lines = []
 
@@ -20,10 +21,8 @@ times = ints(lines[0])
 distances = ints(lines[1])
 
 def race(time, distance):
-    num = 0
-    for speed in range(1, time):
-        if speed * (time - speed) > distance:
-            return time - 2 * speed + 1
+    first_winning_time = math.ceil((time - math.sqrt(time ** 2 - 4 * (distance + 1))) / 2)
+    return time - 2 * first_winning_time + 1
     
 product = 1
 for i in range(len(times)):
