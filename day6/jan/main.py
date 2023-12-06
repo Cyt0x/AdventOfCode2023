@@ -1,5 +1,5 @@
 from typing import List
-import math
+from math import ceil, floor, sqrt
 import re
 
 import time
@@ -21,9 +21,11 @@ times = ints(lines[0])
 distances = ints(lines[1])
 
 def race(time, distance):
-    first_winning_time = math.ceil((time - math.sqrt(time ** 2 - 4 * (distance + 1))) / 2)
-    return time - 2 * first_winning_time + 1
-    
+    minimal_time = (time - sqrt(time ** 2 - 4 * distance)) / 2
+    maximal_time = (time + sqrt(time ** 2 - 4 * distance)) / 2
+
+    return ceil(maximal_time - 1) - floor(minimal_time + 1) + 1
+
 product = 1
 for i in range(len(times)):
     product *= race(times[i], distances[i])
